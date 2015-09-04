@@ -11,11 +11,12 @@
 @interface EMCCountry : NSObject
 
 @property (readonly) NSString *countryCode;
+@property (readonly) NSString *phoneZone;
 
-+ (instancetype)countryWithCountryCode:(NSString *)code;
-- (instancetype)initWithCountryCode:(NSString *)code;
++ (instancetype)countryWithCountryCode:(NSString *)code andPhoneZone:(NSString *)zone;
+- (instancetype)initWithCountryCode:(NSString *)code andPhoneZone:(NSString *)zone;
 - (NSString *)countryName;
 - (NSString *)countryNameWithLocale:(NSLocale *)locale;
 - (NSString *)countryNameWithLocaleIdentifier:(NSString *)localeIdentifier;
-
+- (UIImage *) getFlag;
 @end

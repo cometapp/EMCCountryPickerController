@@ -182,7 +182,7 @@ static const CGFloat kEMCCountryCellControllerMinCellHeight = 25;
     [countryTable setTranslatesAutoresizingMaskIntoConstraints:NO];
     countryTable.dataSource = self;
     countryTable.delegate = self;
-    [countryTable registerClass:[UITableViewCell class] forCellReuseIdentifier:@"identifier"];
+   // [countryTable registerClass:[UITableViewCell class] forCellReuseIdentifier:@"EMCCountryPickerCell"];
     
     searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, [rootView frame].size.width, 0)];
     [searchBar setTranslatesAutoresizingMaskIntoConstraints:NO];
@@ -197,8 +197,7 @@ static const CGFloat kEMCCountryCellControllerMinCellHeight = 25;
     displayController.searchResultsDelegate = self;
     displayController.searchResultsDataSource = self;
     
-    [[[self searchDisplayController] searchResultsTableView] registerClass:[UITableViewCell class]
-                                                    forCellReuseIdentifier:@"identifier"];
+   // [[[self searchDisplayController] searchResultsTableView] registerClass:[UITableViewCell class]                                                    forCellReuseIdentifier:@"EMCCountryPickerCell"];
     
     if ([self searchDisplayController] == nil) NSLog(@"Search DC is nil");
     
@@ -283,7 +282,12 @@ static const CGFloat kEMCCountryCellControllerMinCellHeight = 25;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"identifier" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EMCCountryPickerCell"]; //forIndexPath:indexPath
+    
+    if(cell == nil){
+    
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"EMCCountryPickerCell"];
+    }
     
     EMCCountry *currentCountry;
     
@@ -301,11 +305,16 @@ static const CGFloat kEMCCountryCellControllerMinCellHeight = 25;
     if (self.countryNameDisplayLocale)
     {
         cell.textLabel.text = [currentCountry countryNameWithLocale:self.countryNameDisplayLocale];
+        cell.detailTextLabel.text = [currentCountry phoneZone];
     }
     else
     {
         cell.textLabel.text = [currentCountry countryName];
     }
+    
+    // set the phone code
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"+%@", [currentCountry phoneZone]] ;
+
     
     // Resize flag
     if (self.showFlags)

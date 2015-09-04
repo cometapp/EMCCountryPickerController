@@ -12,6 +12,7 @@
 @implementation EMCCountryManager
 {
     NSArray *countriesArray;
+    NSDictionary * countriesDictionnary;
 }
 
 static EMCCountryManager *_countryManager;
@@ -49,13 +50,12 @@ static EMCCountryManager *_countryManager;
     NSString *countriesPath = [[NSBundle mainBundle] pathForResource:@"countries"
                                                               ofType:@"plist"];
     
-    countriesArray = [NSArray arrayWithContentsOfFile:countriesPath];
+    countriesDictionnary = [NSDictionary dictionaryWithContentsOfFile:countriesPath];
     
-    
-    if (!countriesArray)
+    if (!countriesDictionnary)
     {
         [NSException raise:@"Countries could not be loaded"
-                    format:@"Country array is null: [%@]", countriesArray];
+                    format:@"Country array is null: [%@]", countriesDictionnary];
     }
 }
 
@@ -64,28 +64,28 @@ static EMCCountryManager *_countryManager;
     return [countriesArray count];
 }
 
-- (EMCCountry *)countryWithCode:(NSString *)code
+- (EMCCountry *)countryWithCode:(NSString *)code andPhoneZone:(NSString*) zone
 {
-    return [EMCCountry countryWithCountryCode:code];
+    return [EMCCountry countryWithCountryCode:code andPhoneZone:zone];
 }
 
 - (BOOL)existsCountryWithCode:(NSString *)code
 {
-    return [countriesArray containsObject:code];
+    return [countriesDictionnary objectForKey:code] != nil;
 }
 
 - (NSArray *)countryCodes
 {
-    return [NSArray arrayWithArray:countriesArray];
+    return [countriesDictionnary allKeys];
 }
 
 - (NSArray *)allCountries
 {
     NSMutableArray *countries = [[NSMutableArray alloc] init];
     
-    for (id code in countriesArray)
+    for (NSString *key in countriesDictionnary)
     {
-        [countries addObject:[self countryWithCode:code]];
+        [countries addObject:[self countryWithCode:key andPhoneZone:[countriesDictionnary objectForKey:key]]];
     }
     
     return countries;

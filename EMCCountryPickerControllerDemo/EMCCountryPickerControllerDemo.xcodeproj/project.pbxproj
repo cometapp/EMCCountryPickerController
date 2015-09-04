@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D476FE81B9A061100880516 /* AN@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D476FE61B9A061100880516 /* AN@2x.png */; };
+		0D476FE91B9A061100880516 /* AN.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D476FE71B9A061100880516 /* AN.png */; };
 		90610D22192FA27100D69163 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 90610D21192FA27100D69163 /* README.md */; };
 		90610F18192FA69300D69163 /* AD.png in Resources */ = {isa = PBXBuildFile; fileRef = 90610D24192FA69000D69163 /* AD.png */; };
 		90610F19192FA69300D69163 /* AD@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 90610D25192FA69000D69163 /* AD@2x.png */; };
@@ -539,6 +541,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0D476FE61B9A061100880516 /* AN@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AN@2x.png"; sourceTree = "<group>"; };
+		0D476FE71B9A061100880516 /* AN.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AN.png; sourceTree = "<group>"; };
 		90610D21192FA27100D69163 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		90610D24192FA69000D69163 /* AD.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AD.png; sourceTree = "<group>"; };
 		90610D25192FA69000D69163 /* AD@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AD@2x.png"; sourceTree = "<group>"; };
@@ -1099,6 +1103,8 @@
 		90610D23192FA69000D69163 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0D476FE61B9A061100880516 /* AN@2x.png */,
+				0D476FE71B9A061100880516 /* AN.png */,
 				90610D24192FA69000D69163 /* AD.png */,
 				90610D25192FA69000D69163 /* AD@2x.png */,
 				90610D26192FA69000D69163 /* AE.png */,
@@ -2035,6 +2041,7 @@
 				90610F44192FA69300D69163 /* BH.png in Resources */,
 				90610FFB192FA69300D69163 /* JO@2x.png in Resources */,
 				90610F39192FA69300D69163 /* BA@2x.png in Resources */,
+				0D476FE81B9A061100880516 /* AN@2x.png in Resources */,
 				9061103B192FA69300D69163 /* ML@2x.png in Resources */,
 				906110C9192FA69300D69163 /* TF@2x.png in Resources */,
 				90611000192FA69300D69163 /* KG.png in Resources */,
@@ -2276,6 +2283,7 @@
 				90610FC8192FA69300D69163 /* GQ.png in Resources */,
 				90610FA8192FA69300D69163 /* FK.png in Resources */,
 				90611091192FA69300D69163 /* RE@2x.png in Resources */,
+				0D476FE91B9A061100880516 /* AN.png in Resources */,
 				906110FA192FA69300D69163 /* VN.png in Resources */,
 				90610F4E192FA69300D69163 /* BN.png in Resources */,
 				90611020192FA69300D69163 /* LS.png in Resources */,

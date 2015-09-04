@@ -13,9 +13,9 @@ static NSString * const kDefaultLocale = @"en";
 
 @implementation EMCCountry
 
-+ (instancetype)countryWithCountryCode:(NSString *)code
++ (instancetype)countryWithCountryCode:(NSString *)code andPhoneZone:(NSString *)zone
 {
-    return [[EMCCountry alloc] initWithCountryCode:code];
+    return [[EMCCountry alloc] initWithCountryCode:code andPhoneZone:zone];
 }
 
 - (instancetype)init
@@ -27,13 +27,14 @@ static NSString * const kDefaultLocale = @"en";
     @throw exception;
 }
 
-- (instancetype)initWithCountryCode:(NSString *)code
+- (instancetype)initWithCountryCode:(NSString *)code andPhoneZone:(NSString *)zone
 {
     self = [super init];
     
     if (self)
     {
         _countryCode = code;
+        _phoneZone = zone;
     }
     
     return self;
@@ -75,6 +76,10 @@ static NSString * const kDefaultLocale = @"en";
 {
     NSLocale* locale = [NSLocale localeWithLocaleIdentifier:localeIdentifier];
     return [self countryNameWithLocale:locale];
+}
+
+- (UIImage *) getFlag{
+    return [UIImage imageNamed:_countryCode];
 }
 
 @end
