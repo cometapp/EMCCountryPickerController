@@ -69,6 +69,15 @@ static EMCCountryManager *_countryManager;
     return [EMCCountry countryWithCountryCode:code andPhoneZone:zone];
 }
 
+- (EMCCountry *) countryWithCode:(NSString *)code{
+
+    if ([self existsCountryWithCode:code]) {
+        return [EMCCountry countryWithCountryCode:code andPhoneZone:[countriesDictionnary objectForKey:code]];
+    }
+    
+    return nil;
+}
+
 - (BOOL)existsCountryWithCode:(NSString *)code
 {
     return [countriesDictionnary objectForKey:code] != nil;
