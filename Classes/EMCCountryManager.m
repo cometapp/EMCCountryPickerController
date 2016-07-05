@@ -47,8 +47,9 @@ static EMCCountryManager *_countryManager;
 
 - (void)loadCountries
 {
-    NSString *countriesPath = [[NSBundle mainBundle] pathForResource:@"countries"
-                                                              ofType:@"plist"];
+    NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+    
+    NSString *countriesPath = [bundle pathForResource:@"countries" ofType:@"plist"];
     
     countriesDictionnary = [NSDictionary dictionaryWithContentsOfFile:countriesPath];
     

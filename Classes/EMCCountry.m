@@ -79,7 +79,13 @@ static NSString * const kDefaultLocale = @"en";
 }
 
 - (UIImage *) getFlag{
-    return [UIImage imageNamed:_countryCode];
+//    NSString *imagePath = [NSString stringWithFormat:@"EMCCountryPickerController.bundle/%@", _countryCode];
+    UIImage *image = [UIImage imageNamed:_countryCode inBundle:[NSBundle bundleForClass:self.class] compatibleWithTraitCollection:nil];
+ //   cell.imageView.image = [image fitInSize:CGSizeMake(self.flagSize, self.flagSize)];
+    
+  //  return [UIImage imageNamed:_countryCode];
+    
+    return image;
 }
 
 @end

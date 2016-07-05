@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   s.author             = { "Enrico M. Crisostomo" => "http://thegreyblog.blogspot.com/" }
   s.social_media_url   = "http://thegreyblog.blogspot.com"
   s.platform     = :ios, "6.1"
-  s.source       = { :git => "https://github.com/crossroadio/EMCCountryPickerController.git", :tag => "1.3.2" }
+  s.source       = { :git => "https://github.com/cometapp/EMCCountryPickerController.git", :tag => "1.3.3" }
   s.source_files  = "Classes", "Classes/**/*.{h,m}"
   s.exclude_files = "Classes/Exclude"
   s.resources = "Resources/*.png", "Resources/*.plist"

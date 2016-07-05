@@ -319,7 +319,8 @@ static const CGFloat kEMCCountryCellControllerMinCellHeight = 25;
     // Resize flag
     if (self.showFlags)
     {
-        cell.imageView.image = [[UIImage imageNamed:countryCode] fitInSize:CGSizeMake(self.flagSize, self.flagSize)];
+        UIImage *image = [UIImage imageNamed:countryCode inBundle:[NSBundle bundleForClass:self.class] compatibleWithTraitCollection:nil];
+        cell.imageView.image = [image fitInSize:CGSizeMake(self.flagSize, self.flagSize)];
     }
     
     // Draw a border around the flag view if requested
